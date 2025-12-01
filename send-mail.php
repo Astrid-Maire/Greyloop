@@ -1,24 +1,30 @@
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $to = "astrid11juni@gmail.com"; // din mail
-    $name = strip_tags($_POST['name']);
-    $company = strip_tags($_POST['company']);
-    $email = strip_tags($_POST['email']);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $company = htmlspecialchars($_POST['company']);
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
-    $subject = "Nyhedsbrev tilmelding fra Greyloop";
-    $message = "Navn: $name\nVirksomhed: $company\nEmail: $email";
-    $headers = "From: noreply@greyloop.dk\r\nReply-To: noreply@greyloop.dk";
+    if ($email) {
+        // Mail til dig selv
+        $to = "din-mail@ditdomæne.dk"; // Skift til din egen mail
+        $subject = "Ny tilmelding til nyhedsbrev";
+        $message = "Navn: $name\nVirksomhed: $company\nEmail: $email";
+        $headers = "From: astrid11juni@gmail.com";
+        mail($to, $subject, $message, $headers);
 
-    if(mail($to, $subject, $message, $headers)){
-        // Sender kvittering til brugeren
-        $user_subject = "Tak for din tilmelding!";
-        $user_message = "Hej $name,\n\nTak for din tilmelding til Greyloop nyhedsbrev!\n\nVenlig hilsen\nGreyloop";
-        mail($email, $user_subject, $user_message, $headers);
+        // Bekræftelsesmail til brugeren
+        $confirmSubject = "Tak for din tilmelding!";
+        $confirmMessage = "Hej $name,\n\nTak fordi du tilmeldte dig vores nyhedsbrev! Vi glæder os til at holde dig opdateret med nyheder om Greyloop.\n\nVenlig hilsen\nGreyloop Teamet";
+        $confirmHeaders = "From: astrid11juni@gmail.com";
+        mail($email, $confirmSubject, $confirmMessage, $confirmHeaders);
 
-        echo "OK";
+        echo "success";
     } else {
-        http_response_code(500);
-        echo "Fejl ved afsendelse";
+        http_response_code(400);
+        echo "Ugyldig email";
     }
+} else {
+    http_response_code(405);
+    echo "Metoden er ikke tilladt";
 }
 ?>
