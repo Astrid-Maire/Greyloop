@@ -8,21 +8,23 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pragmatica:wght@400;700&family=Canva+Sans:wght@400;700&display=swap');
 
-body {
+/* --- GLOBAL --- */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Arial', sans-serif;
   color: #1B2E39;
   background-color: #E9F3F8;
 }
 
-h1, p {
-  font-family: 'Pragmatica', sans-serif;
-}
+h1, p { font-family: 'Pragmatica', sans-serif; }
+h2 { font-family: 'Canva Sans', sans-serif; }
 
-h2 {
-  font-family: 'Canva Sans', sans-serif;
-}
-
+/* --- HERO --- */
 .hero {
   position: relative;
   background: url('/billedet-1.jpg') center/cover no-repeat;
@@ -35,9 +37,20 @@ h2 {
   color: #e2f5ff;
 }
 
-.hero h1 { font-size: 5rem; margin: 0; font-weight: bold; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);}
-.hero p { font-size: 1.8rem; margin-top: 1rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); max-width: 600px;}
+.hero h1 { 
+  font-size: 5rem; 
+  font-weight: bold; 
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
 
+.hero p { 
+  font-size: 1.8rem; 
+  margin-top: 1rem; 
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.4); 
+  max-width: 600px;
+}
+
+/* --- HERO-BOX --- */
 .hero-box {
   background-color: rgba(255, 255, 255, 0.95);
   width: 80%;
@@ -60,82 +73,222 @@ h2 {
   align-items: center;
 }
 
-.hero-box .icon { width: 50px; height: 50px; fill: #70A2BD; text-align: center;}
-.hero-box h3 { color: #1B2E39; margin-bottom: 0.01rem; font-size: 1.5rem; text-align: center;}
-.hero-box p { color: #314C5B; font-size: 1rem; line-height: 1.6;}
+.hero-box .icon { width: 50px; height: 50px; fill: #70A2BD; text-align: center; }
+.hero-box h3 { color: #1B2E39; margin-bottom: 0.5rem; font-size: 1.5rem; text-align: center; }
+.hero-box p { color: #314C5B; font-size: 1rem; line-height: 1.6; }
 
+/* --- SIDE-BY-SIDE --- */
 .section { max-width: 1000px; margin: 6rem auto 4rem auto; text-align: center; padding: 0 1rem; } 
-.side-by-side { display: flex; align-items: center; justify-content: space-between; max-width: 84%; margin: 2rem auto; gap: 8rem; flex-wrap: wrap; } 
+.side-by-side { display: flex; align-items: center; justify-content: space-between; max-width: 80%; margin: 2rem auto; gap: 8rem; flex-wrap: wrap; } 
 .side-by-side .text { flex: 1; min-width: 280px; color: #1B2E39; text-align: left; line-height: 2.1; } 
 .side-by-side .text h2 { font-size: 2rem; margin-bottom: 1rem; } 
 .side-by-side .text p { font-size: 1rem; line-height: 2.4; } 
 .side-by-side .image { flex: 1; max-width: 30%; text-align: center; } 
 .side-by-side img { width: 100%; height: auto; border-radius: 10px; }
 
-/* Skjul carousel-knapper på stor skærm */
-.carousel-controls {
-  display: none;
-  margin-bottom:1rem ;
+
+/* --- FOOTER --- */
+.kontakt {
+  background-color: #E9F3F8;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
 }
-footer {
-  background-color: #70a2bd;
-  color: #E9F3F8;
-  padding: 3rem 1rem;
+
+.kontakt-wrapper {
+  background: white;
+  padding: 3rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  max-width: 650px;
+  width: 100%;
   text-align: center;
 }
 
-footer .newsletter {
-  max-width: 500px;
-  margin: 0 auto 1.5rem auto;
-}
-
-footer .newsletter h3 {
-  margin-bottom: 1rem;
+.kontakt-wrapper h2 {
   font-family: 'Canva Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1B2E39;
 }
 
-footer .newsletter form {
+.kontakt-wrapper p {
+  color: #314C5B;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.kontakt form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kontakt .row {
+  display: flex;
+  gap: 1rem;
+}
+
+.kontakt input,
+.kontakt textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #bcd2db;
+  background: #f8fdff;
+  font-size: 1rem;
+  color: #1B2E39;
+  transition: border-color 0.25s;
+}
+
+.kontakt input:focus,
+.kontakt textarea:focus {
+  outline: none;
+  border-color: #70a2bd;
+}
+
+.kontakt button {
+  background-color: #70a2bd;
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.kontakt button:hover {
+  background-color: #5b8a9b;
+}
+
+/* Form status beskeder */
+.form-status {
+  margin-top: 1rem;
+  display: none;
+  font-size: 1rem;
+}
+
+.form-status.success { color: #2d7a3f; }
+.form-status.error { color: #b21e2b; }
+
+
+/* --- CAROUSEL CONTROLS --- */
+.carousel-controls { display: none; margin-bottom:1rem ; }
+
+.footer {
+  background-color: #1B2E39;
+  color: #E9F3F8;
+  padding: 4rem 1rem 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+.footer-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.footer-column.logo-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-column.logo-column img {
+  max-width: 100px; /* juster størrelse efter behov */
+  height: auto;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 10px;
+}
+
+.footer-column h3 {
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #E9F3F8;
+}
+
+.footer-column p,
+.footer-column ul li {
+  color: #c0dbe7;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #c0dbe7;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.footer-column ul li a:hover {
+  color: #70A2BD;
+}
+
+.footer-column form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-footer .newsletter input {
+.footer-column input {
   padding: 0.75rem;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
   font-size: 1rem;
 }
 
-footer .newsletter button {
+.footer-column button {
   padding: 0.75rem;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
   background-color: #70A2BD;
   color: white;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.25s;
 }
 
-footer .newsletter button:hover {
+.footer-column button:hover {
   background-color: #5b8a9b;
 }
 
-footer p {
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  color: #e2f5ff;
+.footer-bottom {
+  border-top: 1px solid #314C5B;
+  padding-top: 1rem;
+  text-align: center;
+  color: #a6c8da;
 }
 
-/* --- RESPONSIV --- */
+.form-status {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+.form-status.success { color: #2d7a3f; }
+.form-status.error { color: #b21e2b; }
 @media(max-width:900px){
   .hero-box {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     position: relative;
+    width: 95%;
+    top: -30px;
   }
 
   .hero-box .card {
@@ -143,54 +296,64 @@ footer p {
     display: none; /* skjul alle kort først */
   }
 
-  .hero-box .card.active {
-    display: flex; /* vis kun aktivt kort */
-  }
+  .hero-box .card.active { display: flex; }
 
   .carousel-controls {
-    display: flex; /* vis kun på små skærme */
+    display: flex;
     margin-top: 1rem;
     justify-content: center;
     gap: 1rem;
   }
 
   .carousel-controls button {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
     background-color: #70A2BD;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9rem;
   }
 
-  .carousel-controls button:hover {
-    background-color: #5b8a9b;
-  }
-
- .side-by-side {
+  .carousel-controls button:hover { background-color: #5b8a9b; } .side-by-side {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
     text-align: center;
-    gap: 1rem;
   }
 
   .side-by-side .text h2 {
-    order: 0; /* H2 øverst */
-    text-align: center;
+    order: 1; /* H2 først */
+    width: 100%;
   }
 
   .side-by-side .image {
-    order: 1; /* Vis billedet først på små skærme */
-    max-width: 100%;
-    margin-bottom: 1rem;
+    order: 2; /* Billede midt */
+    max-width: 90%;
   }
 
   .side-by-side .paragraph-wrapper {
-    order: 2; /* Paragraf under billedet */
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1.8;
-  }}
+    order: 3; /* P til sidst */
+    width: 100%;
+  }
 
+  /* --- HERO --- */
+  .hero {
+    padding-left: 5%;
+    height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+
+  .hero h1 { font-size: 3rem; }
+  .hero p { font-size: 1.2rem; max-width: 90%; margin: 1rem auto 0 auto; }
+
+  /* --- FOOTER RESPONSIVE --- */
+  footer .newsletter input,
+  footer .newsletter button { width: 100%; font-size: 0.9rem; }
+}
 </style>
 </head>
 <body>
@@ -222,7 +385,7 @@ footer p {
       <path d="M48 32h8v8h-8zM48 40h8v8h-8zM40 32h8v8h-8z"/>
     </svg>
     <h3>Nemt at installere og bruge</h3>
-    <p>Greyloop kræver minimal installation og fungerer intuitivt for køkkenpersonale. Der er ingen behov for kurser eller specialuddannelse – systemet virker direkte fra dag ét, uden at ændre daglige rutiner.</p>
+    <p>Greyloop kræver minimal installation og ingen behov for kurser eller specialuddannelse. Systemet virker direkte efter installering, uden at ændre i daglige rutiner.</p>
   </div>
 
   <div class="carousel-controls">
@@ -231,11 +394,13 @@ footer p {
   </div>
 </div>
 
-<div class="side-by-side">
+  <div class="side-by-side">
   <div class="text">
-    <h2>Hvordan virker Greyloop</h2>
+    <div class="order1">
+      <h2>Hvordan virker Greyloop</h2>
+    </div>
     <div class="paragraph-wrapper">
-      <p>Greyloop opsamler spildevand fra opvaskestationer, renser det via et avanceret flertrins-filtersystem og distribuerer det automatisk til genbrug i forskylningsprocessen. Systemet overvåger løbende vandkvaliteten for at sikre, at det genanvendte vand altid lever op til de nødvendige hygiejnekrav. Greyloop reducerer både vandforbrug og driftsomkostninger betydeligt og understøtter mere bæredygtige og ansvarlige arbejdsrutiner i det daglige.</p>
+      <p>Greyloop opsamler spildevand fra opvaskestationer, renser det via et avanceret flertrins-filtersystem og distribuerer det automatisk til genbrug i forskylningsprocessen. Systemet overvåger løbende vandkvaliteten for at sikre, at det genanvendte vand altid lever op til de nødvendige hygiejnekrav. Greyloop reducerer både vandforbrug og driftsomkostninger betydeligt og understøtter mere bæredygtige og ansvarlige arbejdsrutiner i det daglige.</p>     
     </div>
   </div>
   <div class="image">
@@ -243,111 +408,103 @@ footer p {
   </div>
 </div>
 
-<footer>
-  <div class="newsletter">
-    <h3>Tilmeld dig vores nyhedsbrev</h3>
-    <form id="newsletterForm">
-      <input type="text" name="name" placeholder="Navn" required>
+
+
+<div class="kontakt">
+  <div class="kontakt-wrapper">
+    <h2>Kontakt os</h2>
+    <p>Har du spørgsmål, eller ønsker du en demo af Greyloop? Udfyld formularen, så vender vi tilbage hurtigst muligt.</p>
+
+    <form id="kontaktForm">
+      <div class="row">
+        <input type="text" name="name" placeholder="Navn" required>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+
       <input type="text" name="company" placeholder="Virksomhed" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <button type="submit">Tilmeld</button>
+      <textarea name="message" placeholder="Besked" rows="5" required></textarea>
+
+      <button type="submit">Send besked</button>
     </form>
-    <div id="successMsg" style="display:none; margin-top:10px; color:green;">
-      Tak! Din tilmelding er modtaget.
+
+    <div id="kontaktSuccess" class="form-status success">Tak! Din besked er sendt.</div>
+    <div id="kontaktError" class="form-status error">Der skete en fejl — prøv igen.</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-wrapper">
+    <div class="footer-columns">
+      <!-- Om os -->
+      <div class="footer-column">
+        <h3>Om Greyloop</h3>
+        <p>Vi skaber bæredygtige vandgenbrugsløsninger til industrikøkkener og hjælper virksomheder med at spare ressourcer og reducere omkostninger.</p>
+      </div>
+
+      <!-- Hurtige links -->
+       <div class="footer-column logo-column">
+        <img src="logo.png" alt="Greyloop logo">
+      </div>
+
+      
+      
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Greyloop. Alle rettigheder forbeholdes.</p>
     </div>
   </div>
-
 </footer>
 
-<script>
-// Carousel funktion
-const cards = document.querySelectorAll('.hero-box .card');
-let currentIndex: number = 0;
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-function showCard(index: number){
-  cards.forEach((card, i) => {
-    card.classList.toggle('active', i === index);
-  });
-}
+// --- Supabase credentials ---
+const SUPABASE_URL = "https://fjmeqmcehghhrqlogkyf.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_rTrt1EIvfNzsd6oqPG-ekQ_5pY8eXlo";
 
-document.getElementById('nextBtn')?.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % cards.length;
-  showCard(currentIndex);
+const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// --- Carousel ---
+const cards = document.querySelectorAll(".hero-box .card");
+let currentIndex = 0;
+function showCard(index) { cards.forEach((card, i) => card.classList.toggle("active", i === index)); }
+document.getElementById("nextBtn")?.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % cards.length; showCard(currentIndex);
+});
+document.getElementById("prevBtn")?.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length; showCard(currentIndex);
 });
 
-document.getElementById('prevBtn')?.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-  showCard(currentIndex);
-});
+// --- Kontaktformular ---
+const kontaktForm = document.getElementById("kontaktForm");
 
-const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement | null;
-
-newsletterForm?.addEventListener('submit', function (e: Event){
+kontaktForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const formData = new FormData(newsletterForm as HTMLFormElement);
+  const formData = new FormData(kontaktForm);
 
-  fetch('send-mail.php', {
-    method: 'POST',
-    body: formData
-  })
-    .then(res => res.text())
-    .then(() => {
-      document.getElementById('successMsg')!.style.display = 'block';
-      newsletterForm.reset();
-    })
-    .catch(() => alert('Noget gik galt, prøv igen.'));
+  const data = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    company: formData.get("company"),
+    message: formData.get("message")
+  };
+
+  try {
+    const { error } = await db.from("kontaktbeskeder").insert([data]);
+    if (error) throw error;
+
+    document.getElementById("kontaktSuccess").style.display = "block";
+    document.getElementById("kontaktError").style.display = "none";
+    kontaktForm.reset();
+  } catch (err) {
+    console.error("SUPABASE FEJL:", err);
+    document.getElementById("kontaktError").style.display = "block";
+    document.getElementById("kontaktSuccess").style.display = "none";
+  }
 });
-
-// WD FEJLEN FIX: definér WD hvis den ikke eksisterer
-declare const WD: any;
-
-function safeEventHandler(e: any) {
-  console.log("Event modtaget:", e);
-
-  const files = e?.target?.files ?? null;
-  const dataArray = e?.WD?.data ?? null;
-
-  const filesLength = files ? files.length : 0;
-  const dataLength = dataArray ? dataArray.length : 0;
-
-  console.log("Antal filer:", filesLength);
-  console.log("Antal data elementer:", dataLength);
-
-  if (filesLength === 0 && dataLength === 0) {
-    console.warn("Ingen filer/data at behandle.");
-    return;
-  }
-
-  if (filesLength > 0) {
-    for (let i = 0; i < filesLength; i++) {
-      console.log("Fil", i, ":", files[i].name);
-    }
-  }
-
-  if (dataLength > 0) {
-    for (let i = 0; i < dataLength; i++) {
-      console.log("Data element", i, ":", dataArray[i]);
-    }
-  }
-
-  if (typeof WD?.eventHandler === "function") {
-    WD.eventHandler(e);
-  }
-}
-
-const fileInput = document.querySelector('#yourFileInput');
-
-if (fileInput instanceof HTMLInputElement) {
-  fileInput.addEventListener('change', safeEventHandler);
-}
-
-document.addEventListener('someEvent', safeEventHandler);
-
 </script>
-
 </body>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> 05068b7ed8a5ad050d63ce883c9fe8d7a0b4054f
