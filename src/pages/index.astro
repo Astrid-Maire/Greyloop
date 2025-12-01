@@ -77,38 +77,38 @@ h2 {
   display: none;
   margin-bottom:1rem ;
 }
-footer {
+.kontakt {
   background-color: #70a2bd;
   color: #E9F3F8;
   padding: 3rem 1rem;
   text-align: center;
 }
 
-footer .newsletter {
+.kontakt .newsletter {
   max-width: 500px;
   margin: 0 auto 1.5rem auto;
 }
 
-footer .newsletter h3 {
+.kontakt .newsletter h3 {
   margin-bottom: 1rem;
   font-family: 'Canva Sans', sans-serif;
   font-size: 1.5rem;
 }
 
-footer .newsletter form {
+.kontakt .newsletter form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-footer .newsletter input {
+.kontakt .newsletter input {
   padding: 0.75rem;
   border-radius: 5px;
   border: none;
   font-size: 1rem;
 }
 
-footer .newsletter button {
+.kontakt .newsletter button {
   padding: 0.75rem;
   border-radius: 5px;
   border: none;
@@ -119,17 +119,56 @@ footer .newsletter button {
   transition: background-color 0.3s;
 }
 
-footer .newsletter button:hover {
+.kontakt .newsletter button:hover {
   background-color: #5b8a9b;
 }
 
-footer p {
+.kontakt p {
   font-size: 0.9rem;
   margin-top: 1rem;
   color: #e2f5ff;
 }
 
+.side-by-side .text1 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.side-by-side .text1 img {
+  height: 40px;
+  width: auto;
+}
 /* --- RESPONSIV --- */
+  footer .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* alle på linje */
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  footer .footer-name {
+    text-align: left;
+  }
+
+  footer .footer-logo {
+    text-align: center;
+    max-width: 8px; 
+    height: auto;
+  }
+
+
+  footer .footer-logo img {
+    max-width: 8px; 
+    height: auto;
+  }
+
+  footer .footer-contact {
+    text-align: right;
+  }
 @media(max-width:900px){
   .hero-box {
     flex-direction: column;
@@ -167,29 +206,61 @@ footer p {
     background-color: #5b8a9b;
   }
 
- .side-by-side {
-    flex-direction: column;
-    text-align: center;
+.side-by-side {
+    display: grid;
+    grid-template-areas:
+      "h2"
+      "image"
+      "paragraph";
     gap: 1rem;
+    text-align: center;
   }
 
   .side-by-side .text h2 {
-    order: 0; /* H2 øverst */
-    text-align: center;
+    grid-area: h2;
   }
 
   .side-by-side .image {
-    order: 1; /* Vis billedet først på små skærme */
+    grid-area: image;
     max-width: 100%;
-    margin-bottom: 1rem;
+    margin: 0 auto;
   }
 
-  .side-by-side .paragraph-wrapper {
-    order: 2; /* Paragraf under billedet */
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1.8;
-  }}
+  .side-by-side .text .paragraph-wrapper {
+    grid-area: paragraph;
+  }
+footer {
+  background-color: #1B2E39;
+  color: #E9F3F8;
+  padding: 2rem 1rem;
+  font-family: 'Pragmatica', sans-serif;
+}
+
+footer .footer-container {
+  display: flex;
+  flex-direction: column; /* lodret på små skærme */
+  gap: 1.5rem;
+  align-items: center; /* centrer på små skærme */
+  text-align: center;
+}
+
+footer .footer-logo img {
+  max-width: 80px; /* juster størrelsen på logoet */
+   
+  margin-bottom: 0.5rem;
+}
+
+footer h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.2rem;
+}
+
+footer p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+}
+
 
 </style>
 </head>
@@ -233,7 +304,10 @@ footer p {
 
 <div class="side-by-side">
   <div class="text">
+    <div class="text1">
     <h2>Hvordan virker Greyloop</h2>
+      <img src="/logo.png" alt="">
+    </div>
     <div class="paragraph-wrapper">
       <p>Greyloop opsamler spildevand fra opvaskestationer, renser det via et avanceret flertrins-filtersystem og distribuerer det automatisk til genbrug i forskylningsprocessen. Systemet overvåger løbende vandkvaliteten for at sikre, at det genanvendte vand altid lever op til de nødvendige hygiejnekrav. Greyloop reducerer både vandforbrug og driftsomkostninger betydeligt og understøtter mere bæredygtige og ansvarlige arbejdsrutiner i det daglige.</p>
     </div>
@@ -243,7 +317,7 @@ footer p {
   </div>
 </div>
 
-<footer>
+<div class="kontakt">
   <div class="newsletter">
     <h3>Tilmeld dig vores nyhedsbrev</h3>
     <form id="newsletterForm">
@@ -256,8 +330,21 @@ footer p {
       Tak! Din tilmelding er modtaget.
     </div>
   </div>
+</div>
 
-</footer>
+ <div class="footer-container">
+    <div class="footer-name">
+      <h3>Greyloop</h3>
+      <p>Smart og bæredygtig vandgenbrug</p>
+    </div>
+    <div class="footer-logo">
+      <img src="/logo.png" alt="Greyloop Logo">
+    </div>
+    <div class="footer-contact">
+      <p>Telefon: +45 12 34 56 78</p>
+      <p>Email: info@greyloop.dk</p>
+    </div>
+  </div>
 
 <script>
 // Carousel funktion
