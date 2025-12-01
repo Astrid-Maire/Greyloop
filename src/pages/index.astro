@@ -262,83 +262,87 @@ footer p {
 <script>
 // Carousel funktion
 const cards = document.querySelectorAll('.hero-box .card');
-let currentIndex = 0;
-function showCard(index){
+let currentIndex: number = 0;
+
+function showCard(index: number){
   cards.forEach((card, i) => {
     card.classList.toggle('active', i === index);
   });
 }
-document.getElementById('nextBtn').addEventListener('click', () => {
+
+document.getElementById('nextBtn')?.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % cards.length;
   showCard(currentIndex);
 });
-document.getElementById('prevBtn').addEventListener('click', () => {
+
+document.getElementById('prevBtn')?.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + cards.length) % cards.length;
   showCard(currentIndex);
 });
 
-// Nyhedsbrev formular
-document.getElementById('newsletterForm').addEventListener('submit', function(e){
+const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement | null;
+
+newsletterForm?.addEventListener('submit', function (e: Event){
   e.preventDefault();
-  const formData = new FormData(this);
+  const formData = new FormData(newsletterForm as HTMLFormElement);
 
   fetch('send-mail.php', {
     method: 'POST',
     body: formData
-  }).then(res => res.text())
-    .then(data => {
-      document.getElementById('successMsg').style.display = 'block';
-      this.reset();
+  })
+    .then(res => res.text())
+    .then(() => {
+      document.getElementById('successMsg')!.style.display = 'block';
+      newsletterForm.reset();
     })
-    .catch(err => alert('Noget gik galt, prøv igen.'));
+    .catch(() => alert('Noget gik galt, prøv igen.'));
 });
-function safeEventHandler(e) {
-    // Log eventet for debug
-    console.log("Event modtaget:", e);
 
-    // Forsøg at hente data/fil-array
-    const files = e?.target?.files; // evt. array af filer
-    const dataArray = e?.WD?.data;  // evt. WD.data, hvis original kode bruger det
+// WD FEJLEN FIX: definér WD hvis den ikke eksisterer
+declare const WD: any;
 
-    // Tjek om array eksisterer før vi tilgår .length
-    const filesLength = files ? files.length : 0;
-    const dataLength = dataArray ? dataArray.length : 0;
+function safeEventHandler(e: any) {
+  console.log("Event modtaget:", e);
 
-    console.log("Antal filer:", filesLength);
-    console.log("Antal data elementer:", dataLength);
+  const files = e?.target?.files ?? null;
+  const dataArray = e?.WD?.data ?? null;
 
-    if (filesLength === 0 && dataLength === 0) {
-        console.warn("Ingen filer/data at behandle.");
-        return; // Stop her, undgå fejl
+  const filesLength = files ? files.length : 0;
+  const dataLength = dataArray ? dataArray.length : 0;
+
+  console.log("Antal filer:", filesLength);
+  console.log("Antal data elementer:", dataLength);
+
+  if (filesLength === 0 && dataLength === 0) {
+    console.warn("Ingen filer/data at behandle.");
+    return;
+  }
+
+  if (filesLength > 0) {
+    for (let i = 0; i < filesLength; i++) {
+      console.log("Fil", i, ":", files[i].name);
     }
+  }
 
-    // Her kan du fortsætte med behandling, fx:
-    if (filesLength > 0) {
-        for (let i = 0; i < filesLength; i++) {
-            console.log("Fil", i, ":", files[i].name);
-        }
+  if (dataLength > 0) {
+    for (let i = 0; i < dataLength; i++) {
+      console.log("Data element", i, ":", dataArray[i]);
     }
+  }
 
-    if (dataLength > 0) {
-        for (let i = 0; i < dataLength; i++) {
-            console.log("Data element", i, ":", dataArray[i]);
-        }
-    }
-
-    // Hvis du har original WD.eventHandler, kan du kalde den her sikkert
-    if (typeof WD?.eventHandler === "function") {
-        WD.eventHandler(e);
-    }
+  if (typeof WD?.eventHandler === "function") {
+    WD.eventHandler(e);
+  }
 }
 
-// Eksempel: bind safeEventHandler til input eller event
-const fileInput = document.querySelector('#yourFileInput'); // tilpas ID
-if (fileInput) {
-    fileInput.addEventListener('change', safeEventHandler);
+const fileInput = document.querySelector('#yourFileInput');
+
+if (fileInput instanceof HTMLInputElement) {
+  fileInput.addEventListener('change', safeEventHandler);
 }
 
-// Eller til et andet event
 document.addEventListener('someEvent', safeEventHandler);
+
 </script>
 
 </body>
