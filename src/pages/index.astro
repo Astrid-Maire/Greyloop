@@ -1,62 +1,196 @@
----
----
 <!DOCTYPE html>
 <html lang="da">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Greyloop – Bæredygtig vandgenbrug</title>
+<!-- Tilføj Google Fonts eller lokale fonte, hvis nødvendigt -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pragmatica:wght@400;700&family=Canva+Sans:wght@400;700&display=swap');
 
-body { margin: 0; font-family: 'Arial', sans-serif; color: #1B2E39; background-color: #E9F3F8; }
-h1, p { font-family: 'Pragmatica', sans-serif; }
-h2 { font-family: 'Canva Sans', sans-serif; }
-.hero { position: relative; background: url('/billedet-1.jpg') center/cover no-repeat; height: 90vh; display: flex; flex-direction: column; justify-content: center; padding-left: 10%; text-align: left; color: #e2f5ff; }
-.hero h1 { font-size: 5rem; margin: 0; font-weight: bold; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
-.hero p { font-size: 1.8rem; margin-top: 1rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); max-width: 600px; }
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #1B2E39;
+  background-color: #E9F3F8;
+}
 
-.hero-box { background-color: rgba(255, 255, 255, 0.95); width: 80%; padding: 0 2.5rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); display: flex; justify-content: space-between; margin: 0 auto; position: relative; top: -50px; text-align: center; }
-.hero-box .card { width: 30%; padding: 1rem; display: flex; flex-direction: column; align-items: center; }
-.hero-box .icon { width: 50px; height: 50px; fill: #70A2BD; text-align: center; }
-.hero-box h3 { color: #1B2E39; margin-bottom: 0.01rem; font-size: 1.5rem; text-align: center; }
-.hero-box p { color: #314C5B; font-size: 1rem; line-height: 1.6; }
+h1, p {
+  font-family: 'Pragmatica', sans-serif;
+}
 
-.carousel-controls { display: none; margin-bottom:1rem; }
-.kontakt { background-color: #70a2bd; color: #E9F3F8; padding: 3rem 1rem; text-align: center; }
-.kontakt .newsletter { max-width: 500px; margin: 0 auto 1.5rem auto; }
-.kontakt .newsletter h3 { margin-bottom: 1rem; font-family: 'Canva Sans', sans-serif; font-size: 1.5rem; }
-.kontakt .newsletter form { display: flex; flex-direction: column; gap: 0.5rem; }
-.kontakt .newsletter input { padding: 0.75rem; border-radius: 5px; border: none; font-size: 1rem; }
-.kontakt .newsletter button { padding: 0.75rem; border-radius: 5px; border: none; background-color: #70A2BD; color: white; font-size: 1rem; cursor: pointer; transition: background-color 0.3s; }
-.kontakt .newsletter button:hover { background-color: #5b8a9b; }
-.kontakt p { font-size: 0.9rem; margin-top: 1rem; color: #e2f5ff; }
+h2 {
+  font-family: 'Canva Sans', sans-serif;
+}
 
-.side-by-side { display: flex; align-items: center; justify-content: space-between; max-width: 84%; margin: 2rem auto; gap: 8rem; flex-wrap: wrap; }
-.side-by-side .text { flex: 1; min-width: 280px; color: #1B2E39; text-align: left; line-height: 2.1; }
-.side-by-side .text h2 { font-size: 2rem; margin-bottom: 1rem; }
-.side-by-side .text p { font-size: 1rem; line-height: 2.4; }
-.side-by-side .image { flex: 1; max-width: 30%; text-align: center; }
+.hero {
+  position: relative;
+  background: url('/billedet-1.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+  text-align: left;
+  color: #e2f5ff;
+}
+
+.hero h1 { font-size: 5rem; margin: 0; font-weight: bold; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);}
+.hero p { font-size: 1.8rem; margin-top: 1rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); max-width: 600px;}
+
+.hero-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 80%;
+  padding: 0 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+  top: -50px;
+  text-align: center;
+}
+
+.hero-box .card {
+  width: 30%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-box .icon { width: 50px; height: 50px; fill: #70A2BD; text-align: center;}
+.hero-box h3 { color: #1B2E39; margin-bottom: 0.01rem; font-size: 1.5rem; text-align: center;}
+.hero-box p { color: #314C5B; font-size: 1rem; line-height: 1.6;}
+
+.section { max-width: 1000px; margin: 6rem auto 4rem auto; text-align: center; padding: 0 1rem; } 
+.side-by-side { display: flex; align-items: center; justify-content: space-between; max-width: 84%; margin: 2rem auto; gap: 8rem; flex-wrap: wrap; } 
+.side-by-side .text { flex: 1; min-width: 280px; color: #1B2E39; text-align: left; line-height: 2.1; } 
+.side-by-side .text h2 { font-size: 2rem; margin-bottom: 1rem; } 
+.side-by-side .text p { font-size: 1rem; line-height: 2.4; } 
+.side-by-side .image { flex: 1; max-width: 30%; text-align: center; } 
 .side-by-side img { width: 100%; height: auto; border-radius: 10px; }
 
-/* Responsiv */
-@media(max-width:900px){
-.hero-box { flex-direction: column; align-items: center; overflow: hidden; position: relative; }
-.hero-box .card { width: 100%; display: none; }
-.hero-box .card.active { display: flex; }
-.carousel-controls { display: flex; margin-top: 1rem; justify-content: center; gap: 1rem; }
-.carousel-controls button { padding: 0.5rem 1rem; background-color: #70A2BD; color: white; border: none; border-radius: 5px; cursor: pointer; }
-.carousel-controls button:hover { background-color: #5b8a9b; }
-.side-by-side { display: grid; grid-template-areas: "h2" "image" "paragraph"; gap: 1rem; text-align: center; }
-.side-by-side .text h2 { grid-area: h2; }
-.side-by-side .image { grid-area: image; max-width: 100%; margin: 0 auto; }
-.side-by-side .text .paragraph-wrapper { grid-area: paragraph; }
-footer { background-color: #1B2E39; color: #E9F3F8; padding: 2rem 1rem; font-family: 'Pragmatica', sans-serif; }
-footer .footer-container { display: flex; flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
-footer .footer-logo img { max-width: 80px; margin-bottom: 0.5rem; }
-footer h3 { margin: 0 0 0.3rem 0; font-size: 1.2rem; }
-footer p { margin: 0.2rem 0; font-size: 0.9rem; }
+/* Skjul carousel-knapper på stor skærm */
+.carousel-controls {
+  display: none;
+  margin-bottom:1rem ;
 }
+footer {
+  background-color: #70a2bd;
+  color: #E9F3F8;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+footer .newsletter {
+  max-width: 500px;
+  margin: 0 auto 1.5rem auto;
+}
+
+footer .newsletter h3 {
+  margin-bottom: 1rem;
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 1.5rem;
+}
+
+footer .newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+footer .newsletter input {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+footer .newsletter button {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #70A2BD;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+footer .newsletter button:hover {
+  background-color: #5b8a9b;
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #e2f5ff;
+}
+
+/* --- RESPONSIV --- */
+@media(max-width:900px){
+  .hero-box {
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-box .card {
+    width: 100%;
+    display: none; /* skjul alle kort først */
+  }
+
+  .hero-box .card.active {
+    display: flex; /* vis kun aktivt kort */
+  }
+
+  .carousel-controls {
+    display: flex; /* vis kun på små skærme */
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .carousel-controls button {
+    padding: 0.5rem 1rem;
+    background-color: #70A2BD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .carousel-controls button:hover {
+    background-color: #5b8a9b;
+  }
+
+ .side-by-side {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .side-by-side .text h2 {
+    order: 0; /* H2 øverst */
+    text-align: center;
+  }
+
+  .side-by-side .image {
+    order: 1; /* Vis billedet først på små skærme */
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .side-by-side .paragraph-wrapper {
+    order: 2; /* Paragraf under billedet */
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8;
+  }}
+
 </style>
 </head>
 <body>
@@ -68,20 +202,29 @@ footer p { margin: 0.2rem 0; font-size: 0.9rem; }
 
 <div class="hero-box">
   <div class="card active">
-    <svg class="icon" viewBox="0 0 64 64"><path d="M32 2C32 2 12 28 12 42a20 20 0 1040 0C52 28 32 2 32 2z"/></svg>
+    <svg class="icon" viewBox="0 0 64 64">
+      <path d="M32 2C32 2 12 28 12 42a20 20 0 1040 0C52 28 32 2 32 2z"/>
+    </svg>
     <h3>Spar op til 80 % vand</h3>
     <p>Vores system genbruger effektivt spildevand fra opvask, hvilket reducerer vandforbruget drastisk. Dette giver både markante økonomiske besparelser og et væsentligt lavere miljøaftryk for virksomheden.</p>
   </div>
+
   <div class="card">
-    <svg class="icon" viewBox="0 0 64 64"><!-- svg path --></svg>
+   <svg class="icon" viewBox="0 0 64 64"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M535.3 70.7C541.7 64.6 551 62.4 559.6 65.2C569.4 68.5 576 77.7 576 88L576 274.9C576 406.1 467.9 512 337.2 512C260.2 512 193.8 462.5 169.7 393.3C134.3 424.1 112 469.4 112 520C112 533.3 101.3 544 88 544C74.7 544 64 533.3 64 520C64 445.1 102.2 379.1 160.1 340.3C195.4 316.7 237.5 304 280 304L360 304C373.3 304 384 293.3 384 280C384 266.7 373.3 256 360 256L280 256C240.3 256 202.7 264.8 169 280.5C192.3 210.5 258.2 160 336 160C402.4 160 451.8 137.9 484.7 116C503.9 103.2 520.2 87.9 535.4 70.7z"/></svg>
     <h3>Styrk jeres ESG-profil</h3>
     <p>Implementeringen af Greyloop styrker virksomhedens bæredygtighedsprofil, understøtter ESG-rapporter og dokumenterer konkrete grønne tiltag, som kan fremhæves over for kunder og samarbejdspartnere.</p>
   </div>
+
   <div class="card">
-    <svg class="icon" viewBox="0 0 64 64"><!-- svg path --></svg>
+    <svg class="icon" viewBox="0 0 64 64">
+      <circle cx="32" cy="16" r="8"/>
+      <path d="M16 48c0-8 16-8 16-8s16 0 16 8v8H16v-8z"/>
+      <path d="M48 32h8v8h-8zM48 40h8v8h-8zM40 32h8v8h-8z"/>
+    </svg>
     <h3>Nemt at installere og bruge</h3>
     <p>Greyloop kræver minimal installation og fungerer intuitivt for køkkenpersonale. Der er ingen behov for kurser eller specialuddannelse – systemet virker direkte fra dag ét, uden at ændre daglige rutiner.</p>
   </div>
+
   <div class="carousel-controls">
     <button id="prevBtn">⟨ Forrige</button>
     <button id="nextBtn">Næste ⟩</button>
@@ -90,10 +233,7 @@ footer p { margin: 0.2rem 0; font-size: 0.9rem; }
 
 <div class="side-by-side">
   <div class="text">
-    <div class="text1">
-      <h2>Hvordan virker Greyloop</h2>
-      <img src="/logo.png" alt="">
-    </div>
+    <h2>Hvordan virker Greyloop</h2>
     <div class="paragraph-wrapper">
       <p>Greyloop opsamler spildevand fra opvaskestationer, renser det via et avanceret flertrins-filtersystem og distribuerer det automatisk til genbrug i forskylningsprocessen. Systemet overvåger løbende vandkvaliteten for at sikre, at det genanvendte vand altid lever op til de nødvendige hygiejnekrav. Greyloop reducerer både vandforbrug og driftsomkostninger betydeligt og understøtter mere bæredygtige og ansvarlige arbejdsrutiner i det daglige.</p>
     </div>
@@ -103,7 +243,7 @@ footer p { margin: 0.2rem 0; font-size: 0.9rem; }
   </div>
 </div>
 
-<div class="kontakt">
+<footer>
   <div class="newsletter">
     <h3>Tilmeld dig vores nyhedsbrev</h3>
     <form id="newsletterForm">
@@ -116,39 +256,93 @@ footer p { margin: 0.2rem 0; font-size: 0.9rem; }
       Tak! Din tilmelding er modtaget.
     </div>
   </div>
-</div>
 
-<div class="footer-container">
-  <div class="footer-name">
-    <h3>Greyloop</h3>
-    <p>Smart og bæredygtig vandgenbrug</p>
-  </div>
-  <div class="footer-logo">
-    <img src="/logo.png" alt="Greyloop Logo">
-  </div>
-  <div class="footer-contact">
-    <p>Telefon: +45 12 34 56 78</p>
-    <p>Email: info@greyloop.dk</p>
-  </div>
-</div>
+</footer>
 
-<script type="module">
+<script>
 // Carousel funktion
 const cards = document.querySelectorAll('.hero-box .card');
-let currentIndex = 0;
-function showCard(index) { cards.forEach((c,i) => c.classList.toggle('active', i===index)); }
-document.getElementById('nextBtn')?.addEventListener('click', () => { currentIndex=(currentIndex+1)%cards.length; showCard(currentIndex); });
-document.getElementById('prevBtn')?.addEventListener('click', () => { currentIndex=(currentIndex-1+cards.length)%cards.length; showCard(currentIndex); });
+let currentIndex: number = 0;
 
-// Nyhedsbrev
-const newsletterForm = document.getElementById('newsletterForm');
-newsletterForm?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const formData = new FormData(newsletterForm);
-  const res = await fetch('/api/newsletter', { method: 'POST', body: formData });
-  if(res.ok){ document.getElementById('successMsg').style.display='block'; newsletterForm.reset(); }
-  else alert('Noget gik galt, prøv igen.');
+function showCard(index: number){
+  cards.forEach((card, i) => {
+    card.classList.toggle('active', i === index);
+  });
+}
+
+document.getElementById('nextBtn')?.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % cards.length;
+  showCard(currentIndex);
 });
+
+document.getElementById('prevBtn')?.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  showCard(currentIndex);
+});
+
+const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement | null;
+
+newsletterForm?.addEventListener('submit', function (e: Event){
+  e.preventDefault();
+  const formData = new FormData(newsletterForm as HTMLFormElement);
+
+  fetch('send-mail.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(res => res.text())
+    .then(() => {
+      document.getElementById('successMsg')!.style.display = 'block';
+      newsletterForm.reset();
+    })
+    .catch(() => alert('Noget gik galt, prøv igen.'));
+});
+
+// WD FEJLEN FIX: definér WD hvis den ikke eksisterer
+declare const WD: any;
+
+function safeEventHandler(e: any) {
+  console.log("Event modtaget:", e);
+
+  const files = e?.target?.files ?? null;
+  const dataArray = e?.WD?.data ?? null;
+
+  const filesLength = files ? files.length : 0;
+  const dataLength = dataArray ? dataArray.length : 0;
+
+  console.log("Antal filer:", filesLength);
+  console.log("Antal data elementer:", dataLength);
+
+  if (filesLength === 0 && dataLength === 0) {
+    console.warn("Ingen filer/data at behandle.");
+    return;
+  }
+
+  if (filesLength > 0) {
+    for (let i = 0; i < filesLength; i++) {
+      console.log("Fil", i, ":", files[i].name);
+    }
+  }
+
+  if (dataLength > 0) {
+    for (let i = 0; i < dataLength; i++) {
+      console.log("Data element", i, ":", dataArray[i]);
+    }
+  }
+
+  if (typeof WD?.eventHandler === "function") {
+    WD.eventHandler(e);
+  }
+}
+
+const fileInput = document.querySelector('#yourFileInput');
+
+if (fileInput instanceof HTMLInputElement) {
+  fileInput.addEventListener('change', safeEventHandler);
+}
+
+document.addEventListener('someEvent', safeEventHandler);
+
 </script>
 
 </body>
